@@ -14,8 +14,9 @@ import lombok.Data;
 public class Taco {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "taco_generator")
-    @SequenceGenerator(name = "taco_generator", sequenceName = "taco_id_seq", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    //@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "taco_generator")
+    //@SequenceGenerator(name = "taco_generator", sequenceName = "taco_id_seq", allocationSize = 1)
     private Long id;
 
     @NotNull

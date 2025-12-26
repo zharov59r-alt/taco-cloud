@@ -16,8 +16,9 @@ import org.hibernate.validator.constraints.CreditCardNumber;
 public class TacoOrder {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "taco_order_generator")
-    @SequenceGenerator(name = "taco_order_generator", sequenceName = "taco_order_id_seq", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    //@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "taco_order_generator")
+    //@SequenceGenerator(name = "taco_order_generator", sequenceName = "taco_order_id_seq", allocationSize = 1)
     private Long id;
     private Date placedAt = new Date();;
 

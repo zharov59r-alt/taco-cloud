@@ -3,6 +3,10 @@ spring:
   application:
     name: taco-cloud
 
+  jpa:
+    hibernate:
+      ddl-auto=create-drop
+
   datasource:
     url: jdbc:postgresql://10.241.29.55:5432/java
     username: postgres
