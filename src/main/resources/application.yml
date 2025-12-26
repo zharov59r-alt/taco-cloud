@@ -1,0 +1,11 @@
+spring:
+
+  application:
+    name: taco-cloud
+
+  datasource:
+    url: jdbc:postgresql://10.241.29.55:5432/java
+    username: postgres
+    password: An1w0pg1dB
+    generate-unique-name: false
+    name: java
