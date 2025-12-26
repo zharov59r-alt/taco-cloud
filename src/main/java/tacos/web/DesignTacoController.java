@@ -3,6 +3,7 @@ package tacos.web;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
+import java.util.stream.StreamSupport;
 
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,7 +17,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import lombok.extern.slf4j.Slf4j;
 import tacos.Ingredient;
-import tacos.Ingredient.Type;
 import tacos.Taco;
 import tacos.TacoOrder;
 import tacos.data.IngredientRepository;
@@ -36,14 +36,11 @@ public class DesignTacoController {
 
     @ModelAttribute
     public void addIngredientsToModel(Model model) {
-        List<Ingredient> ingredients = ingredientRepo.findAll();
+        Iterable<Ingredient> ingredients = ingredientRepo.findAll();
+        log.info("ingredients: {}", ingredients);
 
-        Type[] types = Ingredient.Type.values();
-        for (Type type : types) {
-            model.addAttribute(type.toString().toLowerCase(),
-                                filterByType(ingredients, type)
-            );
-        }
+        model.addAttribute("ingredients", ingredients);
+
 
     }
 
@@ -60,13 +57,6 @@ public class DesignTacoController {
     @GetMapping
     public String showDesignForm() {
         return "design";
-    }
-
-    private Iterable<Ingredient> filterByType(List<Ingredient> ingredients, Type type) {
-        return ingredients
-                .stream()
-                .filter(x -> x.getType().equals(type))
-                .collect(Collectors.toList());
     }
 
     @PostMapping
