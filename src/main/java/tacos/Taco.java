@@ -19,6 +19,7 @@ public class Taco {
     //@SequenceGenerator(name = "taco_generator", sequenceName = "taco_id_seq", allocationSize = 1)
     private Long id;
 
+    @Column(columnDefinition = "TEXT")
     @NotNull
     @Size(min=5, message="Name must be at least 5 characters long")
     private String name;
