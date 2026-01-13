@@ -25,7 +25,7 @@ public class Taco {
 
     private Date createdAt = new Date();
 
-    @Size(min=1, message="You must choose at least 1 ingredient")
+  //  @Size(min=1, message="You must choose at least 1 ingredient")
     @ManyToMany()
     private List<Ingredient> ingredients = new ArrayList<>();
 
